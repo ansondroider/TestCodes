@@ -4,14 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import com.anson.acode.ALog;
-import com.anson.acode.jni.BitmapBlur;
 import com.caration.encryption.CREncryption;
-
-import testcodes.base.ArrayListTest;
-import testcodes.base.ByteBufferTest;
-import testcodes.base.ByteTest;
-import testcodes.base.FileTest;
-import testcodes.base.SystemTest;
 
 
 public class MainActivity extends Activity {
@@ -19,9 +12,11 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main0);
         test();
     }
+
+
 
     void test(){
         new Thread(){
@@ -34,12 +29,13 @@ public class MainActivity extends Activity {
                 //ByteTest.testFIFO();
 
                 //SystemTest.testArrayCopy();
-                CREncryption cre = new CREncryption();
-                ALog.d("isEncryption = " + cre.isEncryption());
+                //CREncryption.testEncryption();
 
                 ALog.d("--------------- Test end ------------------------");
             }
         }.start();
+
+
 
     }
 
