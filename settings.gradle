@@ -1,0 +1,3 @@
+include ':app'
+include ':acode'
+project(':acode').projectDir = new File('/home/anson/StudioProjects/acode/app');
