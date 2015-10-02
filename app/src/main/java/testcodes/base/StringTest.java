@@ -32,7 +32,7 @@ public class StringTest {
 		s = "【日值上朔 大事勿用】 开市　立券　纳财　分居　斋醮　祈福　安床 入宅　祭祀　纳采　交易　放水　纳畜　修造 动土　置产　破土　筑堤　针灸　赴任　出行 移徙　竖柱　盖屋";
 		testCut(s);
 	}
-	
+
 	public static void testCut(String s){
 		char cb = (char)12288;
 		int idx = 12;
@@ -128,9 +128,32 @@ public class StringTest {
 			}
 		}
 	}
-	
-	public static String testInsert(int score){
+
+    /**
+     * inster ins to src string every interval
+     * aabbccddE, -, 2 ---> aa-bb-cc-dd-E
+     * @param src source string
+     * @param ins string inserted
+     * @param interval interval in source
+     * @return new string
+     */
+    public static String insertToString(String src, String ins, int interval) {
+        if(src == null || src.length() <= interval){
+            return src;
+        }
+        StringBuilder sb = new StringBuilder(src);
+        int insLen = interval + ins.length();
+        int times = src.length() / interval;
+        times -= src.length() % interval == 0 ? 1 : 0;
+        for(int i = 0; i < times; i++){
+            sb.insert((insLen * i) + interval, ins);
+        }
+
+        return sb.toString();
+    }
+    public static String testInsert(int score){
 		char[] cs = (String.valueOf(score)).toCharArray();
+
 		int len = cs.length;
 		StringBuilder sb = new StringBuilder();
 		int count = len / 3;

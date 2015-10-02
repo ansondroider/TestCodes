@@ -6,23 +6,33 @@ import android.os.Bundle;
 import com.anson.acode.ALog;
 import com.caration.encryption.CREncryption;
 
+import testcodes.assets.AssetsTest;
+import testcodes.base.StringTest;
+import testcodes.font.FontTest;
+import testcodes.message.HandlerTest;
+
 
 public class MainActivity extends Activity {
 
+    String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ALog.d(TAG, "onCreate");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main0);
         test();
     }
 
 
 
     void test(){
+
+        //AssetsTest.playAssetsVideo(MainActivity.this);
+        //FontTest.testSetFamily(this);
         new Thread(){
             @Override
             public void run() {
                 ALog.d("++++++++++++++++++++ Test start ++++++++++++++++++++");
+
                 //testFile();
                 //ByteBufferTest.testByteBufferFIFO();
                 //ArrayListTest.testFIFO();
@@ -30,7 +40,8 @@ public class MainActivity extends Activity {
 
                 //SystemTest.testArrayCopy();
                 //CREncryption.testEncryption();
-
+                //ALog.d(StringTest.insertToString("aaabbbcccdddeee", "-ccc-", 3));
+                HandlerTest.customHandler();
                 ALog.d("--------------- Test end ------------------------");
             }
         }.start();
