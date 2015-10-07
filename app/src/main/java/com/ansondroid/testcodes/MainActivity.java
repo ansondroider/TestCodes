@@ -10,6 +10,7 @@ import testcodes.assets.AssetsTest;
 import testcodes.base.StringTest;
 import testcodes.font.FontTest;
 import testcodes.message.HandlerTest;
+import testcodes.views.TESTView;
 
 
 public class MainActivity extends Activity {
@@ -28,6 +29,7 @@ public class MainActivity extends Activity {
 
         //AssetsTest.playAssetsVideo(MainActivity.this);
         //FontTest.testSetFamily(this);
+        TESTView tv = new TESTView(this);
         new Thread(){
             @Override
             public void run() {
@@ -41,7 +43,7 @@ public class MainActivity extends Activity {
                 //SystemTest.testArrayCopy();
                 //CREncryption.testEncryption();
                 //ALog.d(StringTest.insertToString("aaabbbcccdddeee", "-ccc-", 3));
-                HandlerTest.customHandler();
+                //HandlerTest.customHandler();
                 ALog.d("--------------- Test end ------------------------");
             }
         }.start();

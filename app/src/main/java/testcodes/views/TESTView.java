@@ -1,6 +1,7 @@
 package testcodes.views;
 
 import android.app.Activity;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 
 import com.ansondroid.testcodes.R;
@@ -13,11 +14,31 @@ public class TESTView {
     Activity a;
     public TESTView(Activity a){
         this.a = a;
-        a.setContentView(R.layout.activity_main);
+        //a.setContentView(R.layout.activity_main);
+        //a.setContentView(R.layout.activity_waveview);
+        testCode();
     }
 
     void testCode(){
-        testSpinner();
+        testXFormat();
+        //testSpinner();
+    }
+
+    void testXFormat(){
+        a.setContentView(R.layout.activity_xformat);
+        final XFormatView xfView = (XFormatView)a.findViewById(R.id.xfv);
+        SeekBar sb = (SeekBar)a.findViewById(R.id.sb_mode);
+        sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                xfView.updateXFormat(progress-1);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
     }
 
     void testSpinner(){

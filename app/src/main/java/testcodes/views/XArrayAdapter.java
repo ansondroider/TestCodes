@@ -11,6 +11,7 @@ import com.anson.acode.ALog;
 /**
  * com.ansondroider.yhtestcodes.view
  * Created by anson on 15-9-21.
+ * make couldn't select items expect 1
  */
 public class XArrayAdapter<T> extends ArrayAdapter<T> {
 
