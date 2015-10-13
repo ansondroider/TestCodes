@@ -10,6 +10,7 @@ import testcodes.assets.AssetsTest;
 import testcodes.base.StringTest;
 import testcodes.font.FontTest;
 import testcodes.message.HandlerTest;
+import testcodes.time.TimeTest;
 import testcodes.views.TESTView;
 
 
@@ -29,7 +30,7 @@ public class MainActivity extends Activity {
 
         //AssetsTest.playAssetsVideo(MainActivity.this);
         //FontTest.testSetFamily(this);
-        TESTView tv = new TESTView(this);
+        //TESTView tv = new TESTView(this);
         new Thread(){
             @Override
             public void run() {
@@ -44,6 +45,7 @@ public class MainActivity extends Activity {
                 //CREncryption.testEncryption();
                 //ALog.d(StringTest.insertToString("aaabbbcccdddeee", "-ccc-", 3));
                 //HandlerTest.customHandler();
+                TimeTest.testTimeZone();
                 ALog.d("--------------- Test end ------------------------");
             }
         }.start();
