@@ -3,6 +3,7 @@
     package="com.ansondroid.testcodes" >
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,6 +17,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".SimpleBindService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.ansondroider.action.BIND_SERVICE"/>
+                <category android:name="ANDROID.INTENT.CATEGORY.DEFAULT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
