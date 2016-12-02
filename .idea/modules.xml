@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/CameraPreviewCapture/CameraPreviewCapture.iml" filepath="$PROJECT_DIR$/CameraPreviewCapture/CameraPreviewCapture.iml" />
       <module fileurl="file://$PROJECT_DIR$/TestCodes.iml" filepath="$PROJECT_DIR$/TestCodes.iml" />
       <module fileurl="file://$PROJECT_DIR$/../acode/app/acode.iml" filepath="$PROJECT_DIR$/../acode/app/acode.iml" />
       <module fileurl="file://$PROJECT_DIR$/aidlclient/aidlclient.iml" filepath="$PROJECT_DIR$/aidlclient/aidlclient.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/drawbitmapmesh/drawbitmapmesh.iml" filepath="$PROJECT_DIR$/drawbitmapmesh/drawbitmapmesh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/foldingLayout/foldingLayout.iml" filepath="$PROJECT_DIR$/foldingLayout/foldingLayout.iml" />
     </modules>
   </component>
 </project>

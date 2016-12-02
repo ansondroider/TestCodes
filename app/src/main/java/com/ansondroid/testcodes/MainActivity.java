@@ -16,8 +16,11 @@ import com.caration.encryption.CREncryption;
 import java.lang.ref.WeakReference;
 
 import testcodes.assets.AssetsTest;
+import testcodes.base.ByteTest;
+import testcodes.base.ForText;
 import testcodes.base.SocketTest;
 import testcodes.base.StringTest;
+import testcodes.base.ThreadTest;
 import testcodes.font.FontTest;
 import testcodes.intents.IntentData;
 import testcodes.jnitest.JNICaller;
@@ -67,16 +70,24 @@ public class MainActivity extends Activity {
                     //HandlerTest.customHandler();
                     //TimeTest.testTimeZone();
                     //String res = "find str at : " + JNICaller.matchString("七九");
-                    //JNICaller jni = new JNICaller();
+                    JNICaller jni = new JNICaller();
                     //jni.getCallerIntField();
+                    int result = jni.testInitUri();
 
                     /*for (int i = 0; i < 10; i++) {
                         SocketTest.testSendUDP("OP_DEL\n" + i + "acd\n/mnt/sdcard/七.pdf\n100730\n20000000000", "192.168.1.112", 8402);
                         Thread.sleep(500);
                     }*/
                     //IntentData.testPrintDataUri();
-                    HHSWeather.testAnaWeather();
-                    String res = "sended";
+                    //HHSWeather.testAnaWeather();
+                    //TimeTest.testTimeFormat();
+                    //StringTest.stringCompare();
+                    //ForText.breakFor();
+                    //ByteTest.byte2Int();
+                    //HHSWeather.testDahongWeather();
+                    //ByteTest.main(new String[]{});
+                    //ThreadTest.testRestartThread();
+                    String res = "sended " + result;
                     h.sendMessageDelayed(h.obtainMessage(0, res), 400);
                     ALog.d("--------------- Test end ------------------------");
                 }catch(Exception e){

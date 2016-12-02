@@ -1,10 +1,17 @@
 package testcodes.base;
+import com.anson.acode.ALog;
+import com.anson.acode.AUtils;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.List;
 
 
 public class StringTest {
@@ -32,6 +39,44 @@ public class StringTest {
 		s = "【日值上朔 大事勿用】 开市　立券　纳财　分居　斋醮　祈福　安床 入宅　祭祀　纳采　交易　放水　纳畜　修造 动土　置产　破土　筑堤　针灸　赴任　出行 移徙　竖柱　盖屋";
 		testCut(s);
 	}
+
+    public static void stringCompare(){
+        String[] ss = {
+                "0",
+                "7",
+                "80",
+                "1苹果",
+                "100",
+                "1",
+                "1香蕉",
+                "77",
+                "3",
+                "X",
+                "1爱情",
+                "张","林","赖","徐","刘","杨",
+        };
+
+        ArrayList<String> ssList = new ArrayList<String>();
+        for(String s : ss){
+            ssList.add(s);
+        }
+        ALog.logArray("StringTest0", ss);
+        for(int i = 0; i < ss.length - 1; i ++){
+            for(int j = i + 1; j < ss.length; j ++){
+                if(ss[i].compareTo(ss[j]) > 0){
+                    String s = ss[i];
+                    ss[i] = ss[j];
+                    ss[j] = s;
+                }
+            }
+        }
+
+        ALog.logArray("StringTest1", ss);
+
+        Comparator c = AUtils.getChinaComparator();
+        Collections.sort(ssList, c);
+        ALog.logListArray(ssList);
+    }
 
 	public static void testCut(String s){
 		char cb = (char)12288;

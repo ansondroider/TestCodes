@@ -47,30 +47,25 @@ public class ThreadTest {
 	 * 1. call Thread.interrupt in other Thread;
 	 * 2. break the Loop in catch(InterruptedException e);
 	 * 
-	 * 
-	 * @param args
-	 */
+	 **/
 	public static void testStopThread(){
 		//final Object lock = new Object();
 		final Thread t = new Thread(){
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				int i = 0;
-				for(;;){
+				for(;!this.isInterrupted();){
 					//synchronized (lock) {
-						System.out.println("i = " + i++);
+						android.util.Log.d("ThreadTest","i = " + i++);
 					/*	try {
 							lock.wait(1000);
 						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}*/
 					//}
 					try {
-						sleep(100);
+						sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 						break;
 					}
@@ -83,17 +78,57 @@ public class ThreadTest {
 			@Override
 			public void run() {
 				try {
-					sleep(1000);
-					t.stop();
-					//t.interrupt();
+					sleep(15500);
+					//t.stop();
+                    android.util.Log.d("ThreadTest","interrupt()");
+					t.interrupt();
 					//t.suspend();
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 		};
 		t2.start();
-		
 	}
+
+    /**
+     * Thread will call CheckNotStart when start...
+     * but, the state will change to TERMINAL after start() call.
+     * and NEVER change to idle....
+     */
+    public static void testRestartThread(){
+        final Thread t = new Thread(){
+            @Override
+            public void run() {
+                int i = 0;
+                for(;!isInterrupted();){
+                    android.util.Log.d("ThreadTest","i = " + i++);
+                    try{sleep(500);}catch (Exception e){e.printStackTrace();}
+                }
+            }
+        };
+
+        Thread t2 = new Thread(){
+            @Override
+            public void run() {
+                t.start();
+                try{sleep(5500);}catch (Exception e){e.printStackTrace();}
+                t.interrupt();
+
+                try{sleep(1000);}catch (Exception e){e.printStackTrace();}
+
+                /**
+                 * FATAL EXCEPTION: Thread-3217
+                 java.lang.IllegalThreadStateException: Thread already started.
+                 at java.lang.Thread.start(Thread.java:1045)
+                 */
+                t.start();
+                try{sleep(5500);}catch (Exception e){e.printStackTrace();}
+                t.interrupt();
+            }
+        };
+        t2.start();
+
+
+    }
 }

@@ -1,4 +1,8 @@
 package testcodes.base;
+import com.anson.acode.ALog;
+import com.anson.acode.AUtils;
+import com.anson.acode.StringUtils;
+
 import java.util.Date;
 import java.util.Random;
 
@@ -13,12 +17,15 @@ public class ByteTest {
 		int i = 222 & ~0;
 		//hexStr = Integer.toHexString(i);
 		//binStr = Integer.toBinaryString(i);
-		
-		int i2 = 222;
-		byte[] bs = intToByte(i2);
-		
-		//getDateTime();
-		LOG.logBytes(intToByte(222));
+		*/
+		int i2 = -1;
+		byte[] bs = getBytes(i2);
+		ALog.d(StringUtils.getByteArrayString(bs));
+
+        int ci = AUtils.readInt(bs, 0);
+        ALog.d("ci=" + ci);
+        //getDateTime();
+		/*LOG.logBytes(intToByte(222));
 		
 		LOG.log("---------------------------------------");
 		for(i=-128; i < 256; i++){
@@ -35,8 +42,18 @@ public class ByteTest {
 		//StringNByte();
 		//test();
 		//test0xf();
-		intNbyte();
+		//intNbyte();
+        //byte2Int();
 	}
+
+    public static void byte2Int(){
+        for(byte b = -128; b < 127; b ++) {
+            int i = (int) b;
+            int i1 = 0xFF & b;
+            LOG.logByteBinary(b);
+            ALog.d("b =" + b + ", i=" + i + ", i1=" + i1);
+        }
+    }
 
 
     public static void testFIFO(){
@@ -56,7 +73,7 @@ public class ByteTest {
 			int i0 = random.nextInt(max) - 0xff ;
 			byte[] b0 = getBytes(i0);
 			byte[] b00 = getRealBytes(i0);
-			LOG.log(Integer.toBinaryString(i0) + "< " + i0);
+            LOG.log(Integer.toBinaryString(i0) + "< " + i0);
 			LOG.logByteArrayBinary(b0);
 			LOG.logxxx();
 			LOG.logByteArrayBinary(b00);
