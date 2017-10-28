@@ -38,6 +38,7 @@ import testcodes.jnitest.JNICaller;
 import testcodes.json.HHSWeather;
 import testcodes.message.HandlerTest;
 import testcodes.sensors.SensorImageViewActivity;
+import testcodes.systemManagers.PackageManagerActivity;
 import testcodes.time.TimeTest;
 import testcodes.views.OverScrollBy;
 import testcodes.views.TESTView;
@@ -67,6 +68,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         adapter.addActivity(FilePickerActivity.class);
         adapter.addActivity(SensorImageViewActivity.class);
         adapter.addActivity(StateListenActivity.class);
+        adapter.addActivity(PackageManagerActivity.class);
 
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(this);

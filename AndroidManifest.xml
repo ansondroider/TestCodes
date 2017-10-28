@@ -53,7 +53,13 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-
+        <activity android:name="testcodes.systemManagers.PackageManagerActivity"
+                  android:label="PackageManagerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
         <activity android:name="testcodes.sensors.SensorImageViewActivity"
                   android:label="SensorImageViewer"
                   android:icon="@drawable/sensor_image_viewer"
